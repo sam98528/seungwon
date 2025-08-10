@@ -1,5 +1,5 @@
 export const about = {
-  name: "이승원",
+  name: "씨발",
   role: "Flutter & React Developer",
   bio: "Flutter와 React를 중심으로 빠른 UX와 견고한 구조를 설계하는 프론트엔드 개발자입니다.\n항상 열정적으로 임하며, 어떤 도전에도 긍정적인 태도로 임합니다.",
   email: "sam98528@naver.com",
