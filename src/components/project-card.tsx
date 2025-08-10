@@ -1,25 +1,28 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import styled from "styled-components"
-import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image";
+import styled from "styled-components";
+import { ExternalLink, Github } from "lucide-react";
 
 export type Project = {
-  title: string
-  description: string
-  tags: string[]
-  cover: string
-  links: { live?: string; github?: string }
-}
+  readonly title: string;
+  readonly description: string;
+  readonly tags: ReadonlyArray<string>;
+  readonly cover: string;
+  readonly links: { live?: string; github?: string };
+};
 
-export function ProjectGrid({ items }: { items: Project[] }) {
+export function ProjectGrid({ items }: { items: ReadonlyArray<Project> }) {
   return (
     <Grid role="list">
       {items.map((p) => (
         <Card key={p.title} role="listitem">
           <Media>
             <Image
-              src={p.cover || "/placeholder.svg?height=640&width=1024&query=project%20cover"}
+              src={
+                p.cover ||
+                "/placeholder.svg?height=640&width=1024&query=project%20cover"
+              }
               alt={`${p.title} cover`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -67,7 +70,7 @@ export function ProjectGrid({ items }: { items: Project[] }) {
         </Card>
       ))}
     </Grid>
-  )
+  );
 }
 
 const Grid = styled.ul`
@@ -82,7 +85,7 @@ const Grid = styled.ul`
   @media (min-width: ${({ theme }) => theme.breakpoints.lg}px) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-`
+`;
 
 const Card = styled.li`
   background: var(--card);
@@ -96,7 +99,7 @@ const Card = styled.li`
     box-shadow: ${({ theme }) => theme.shadow.hover};
     transform: translateY(-2px);
   }
-`
+`;
 
 const Media = styled.div`
   position: relative;
@@ -111,30 +114,30 @@ const Media = styled.div`
   ${Card}:hover & img {
     transform: scale(1.03);
   }
-`
+`;
 
 const Body = styled.div`
   padding: 16px;
-`
+`;
 
 const Title = styled.h3`
   font-size: 16px;
   font-weight: 800;
   letter-spacing: -0.01em;
-`
+`;
 
 const Desc = styled.p`
   color: var(--muted);
   font-size: 14px;
   margin-top: 6px;
-`
+`;
 
 const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 10px;
-`
+`;
 
 const Tag = styled.span`
   font-size: 11px;
@@ -143,13 +146,13 @@ const Tag = styled.span`
   border: 1px solid var(--border);
   color: var(--muted);
   background: var(--surface);
-`
+`;
 
 const Links = styled.div`
   margin-top: 12px;
   display: inline-flex;
   gap: 8px;
-`
+`;
 
 const LinkBtn = styled.button`
   display: inline-flex;
@@ -161,7 +164,8 @@ const LinkBtn = styled.button`
   border: 1px solid var(--border);
   background: transparent;
   color: var(--text);
-  transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  transition: background-color 160ms ease, transform 160ms ease,
+    box-shadow 160ms ease;
 
   &:hover {
     background: var(--surface);
@@ -185,4 +189,4 @@ const LinkBtn = styled.button`
     clip: rect(0 0 0 0);
     overflow: hidden;
   }
-`
+`;

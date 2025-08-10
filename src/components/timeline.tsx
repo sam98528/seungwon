@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import styled from "styled-components"
+import styled from "styled-components";
 
 export type ExperienceItem = {
-  company: string
-  role: string
-  period: string
-  bullets: string[]
-}
+  readonly company: string;
+  readonly role: string;
+  readonly period: string;
+  readonly bullets: ReadonlyArray<string>;
+};
 
-export function Timeline({ items }: { items: ExperienceItem[] }) {
+export function Timeline({ items }: { readonly items: ReadonlyArray<ExperienceItem> }) {
   return (
     <Wrap>
       <Line aria-hidden="true" />
@@ -33,13 +33,13 @@ export function Timeline({ items }: { items: ExperienceItem[] }) {
         ))}
       </List>
     </Wrap>
-  )
+  );
 }
 
 const Wrap = styled.div`
   position: relative;
   padding-left: 20px;
-`
+`;
 
 const Line = styled.div`
   position: absolute;
@@ -48,19 +48,19 @@ const Line = styled.div`
   bottom: 0;
   width: 2px;
   background: var(--border);
-`
+`;
 
 const List = styled.ul`
   list-style: none;
   display: grid;
   gap: 18px;
-`
+`;
 
 const Item = styled.li`
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-`
+`;
 
 const Dot = styled.span`
   position: absolute;
@@ -72,37 +72,37 @@ const Dot = styled.span`
   background: var(--surface);
   border: 2px solid var(--primary);
   box-shadow: 0 0 0 2px var(--surface);
-`
+`;
 
 const Content = styled.div`
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px;
-`
+`;
 
 const Header = styled.div`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 10px;
-`
+`;
 
 const Company = styled.h3`
   font-weight: 800;
   font-size: 15px;
-`
+`;
 
 const Period = styled.span`
   color: var(--muted);
   font-size: 12px;
-`
+`;
 
 const Role = styled.p`
   color: var(--muted);
   margin-top: 2px;
   font-size: 13px;
-`
+`;
 
 const Bullets = styled.ul`
   margin-top: 8px;
@@ -113,4 +113,4 @@ const Bullets = styled.ul`
     margin-top: 6px;
     font-size: 14px;
   }
-`
+`;

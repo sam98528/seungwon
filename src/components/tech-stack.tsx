@@ -2,17 +2,13 @@
 
 import styled from "styled-components";
 
-enum TechLevel {
-  Beginner = "Beginner",
-  Intermediate = "Intermediate",
-  Advanced = "Advanced",
-}
+export type TechLevel = "Beginner" | "Intermediate" | "Advanced";
 export type Tech = {
-  name: string;
-  level: TechLevel;
+  readonly name: string;
+  readonly level: TechLevel;
 };
 
-export function TechStack({ items }: { items: Tech[] }) {
+export function TechStack({ items }: { items: ReadonlyArray<Tech> }) {
   return (
     <TechGrid role="list">
       {items.map((t) => (
@@ -97,19 +93,19 @@ const Level = styled.span`
   border: 1px solid var(--border);
   background: var(--surface);
 
-  &[data-level="${TechLevel.Advanced}"] {
+  &[data-level="Advanced"] {
     color: var(--primary-ink);
     background: var(--advanced);
     border-color: var(--advanced);
     font-weight: 700;
   }
-  &[data-level="${TechLevel.Intermediate}"] {
+  &[data-level="Intermediate"] {
     color: var(--primary-ink);
     background: var(--intermediate);
     border-color: var(--intermediate);
     font-weight: 700;
   }
-  &[data-level="${TechLevel.Beginner}"] {
+  &[data-level="Beginner"] {
     color: var(--primary-ink);
     background: var(--beginner);
     border-color: var(--beginner);
