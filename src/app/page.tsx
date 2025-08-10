@@ -1,95 +1,67 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import { useMemo } from "react";
+import { HeaderBar } from "@/components/header-bar";
+import { Container } from "@/components/container";
+import { Section, SectionSubtitle, SectionTitle } from "@/components/section";
+import { Hero } from "@/components/hero";
+import { TechStack } from "@/components/tech-stack";
+import { Timeline } from "@/components/timeline";
+import { ProjectGrid } from "@/components/project-card";
+import { Footer } from "@/components/footer";
+import { FadeIn } from "@/components/fade-in";
+import { about, experience, projects, skills } from "@/data/site";
+
+export default function Page() {
+  const techItems = useMemo(() => skills, []);
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <HeaderBar about={about} />
+      <main id="main">
+        <FadeIn>
+          <Section id="about">
+            <Container>
+              <Hero about={about} />
+            </Container>
+          </Section>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+          <Section id="skills">
+            <Container>
+              <SectionTitle>{"기술 스택"}</SectionTitle>
+              <SectionSubtitle>
+                {
+                  "신뢰성과 높은 성능의 제품을 만들기 위해 사용하는 기술들입니다."
+                }
+              </SectionSubtitle>
+              <TechStack items={techItems} />
+            </Container>
+          </Section>
+
+          <Section id="experience">
+            <Container>
+              <SectionTitle>{"경력"}</SectionTitle>
+              <SectionSubtitle>
+                {"최근 작업에서 임팩트를 만든 핵심 하이라이트입니다."}
+              </SectionSubtitle>
+              <Timeline items={experience} />
+            </Container>
+          </Section>
+
+          <Section id="projects">
+            <Container>
+              <SectionTitle>{"프로젝트"}</SectionTitle>
+              <SectionSubtitle>
+                {
+                  "모바일, 미디어 파이프라인, 웹 애플리케이션을 아우르는 선별 작업들입니다."
+                }
+              </SectionSubtitle>
+              <ProjectGrid items={projects} />
+            </Container>
+          </Section>
+
+          <Footer />
+        </FadeIn>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
