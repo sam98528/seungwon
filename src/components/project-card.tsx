@@ -290,26 +290,26 @@ const Media = styled.div`
   }
 `;
 
-const ExpandButton = styled.div`
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 160ms ease, transform 160ms ease;
+// const ExpandButton = styled.div`
+//   position: absolute;
+//   top: 12px;
+//   right: 12px;
+//   width: 36px;
+//   height: 36px;
+//   border-radius: 12px;
+//   background: rgba(0, 0, 0, 0.3);
+//   backdrop-filter: blur(8px);
+//   color: var(--text);
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   transition: background-color 160ms ease, transform 160ms ease;
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.8);
-    transform: scale(1.05);
-  }
-`;
+//   &:hover {
+//     background: rgba(0, 0, 0, 0.8);
+//     transform: scale(1.05);
+//   }
+// `;
 
 const TypeIcon = styled.div`
   position: absolute;

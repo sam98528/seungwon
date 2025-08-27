@@ -71,18 +71,18 @@ const AvatarWrap = styled.div`
   height: 96px;
 `;
 
-const Badge = styled.span`
-  position: absolute;
-  bottom: -8px;
-  right: -8px;
-  background: var(--primary);
-  color: var(--primary-ink);
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 10px;
-  padding: 4px 8px;
-  border: 1px solid var(--border);
-`;
+// const Badge = styled.span`
+//   position: absolute;
+//   bottom: -8px;
+//   right: -8px;
+//   background: var(--primary);
+//   color: var(--primary-ink);
+//   border-radius: 999px;
+//   font-weight: 700;
+//   font-size: 10px;
+//   padding: 4px 8px;
+//   border: 1px solid var(--border);
+// `;
 
 const Title = styled.h1`
   font-size: clamp(24px, 5vw, 36px);
@@ -157,8 +157,8 @@ const GhostButton = styled(BaseButton)`
   }
 `;
 
-const Meta = styled.div`
-  color: var(--muted);
-  margin-top: 6px;
-  font-size: 13px;
-`;
+// const Meta = styled.div`
+//   color: var(--muted);
+//   margin-top: 6px;
+//   font-size: 13px;
+// `;

@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import { Award, Shield, Calendar, Building, Plane } from "lucide-react";
+import { Award, Calendar, Building, Plane } from "lucide-react";
 import { background } from "@/data/site";
 
 export type BackgroundItem = {
