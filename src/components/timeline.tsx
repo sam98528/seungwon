@@ -9,7 +9,11 @@ export type ExperienceItem = {
   readonly bullets: ReadonlyArray<string>;
 };
 
-export function Timeline({ items }: { readonly items: ReadonlyArray<ExperienceItem> }) {
+export function Timeline({
+  items,
+}: {
+  readonly items: ReadonlyArray<ExperienceItem>;
+}) {
   return (
     <Wrap>
       <Line aria-hidden="true" />
@@ -64,7 +68,7 @@ const Item = styled.li`
 
 const Dot = styled.span`
   position: absolute;
-  left: -1px;
+  left: -20px;
   top: 4px;
   width: 14px;
   height: 14px;
@@ -79,6 +83,13 @@ const Content = styled.div`
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 14px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: ${({ theme }) => theme.shadow.soft};
+    transform: translateY(-2px);
+    border-color: var(--primary);
+  }
 `;
 
 const Header = styled.div`

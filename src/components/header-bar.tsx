@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import styled from "styled-components";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 type About = {
   name: string;
@@ -36,10 +36,61 @@ export function HeaderBar({ about }: { about: About }) {
         </LeftWrap>
         <Right>
           <Nav aria-label="Section navigation">
-            <a href="#about">{"About"}</a>
-            <a href="#skills">{"Skills"}</a>
-            <a href="#experience">{"Experience"}</a>
-            <a href="#projects">{"Projects"}</a>
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("about")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {"소개"}
+            </a>
+            <a
+              href="#skills"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("skills")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {"기술 스택"}
+            </a>
+            <a
+              href="#experience"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("experience")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {"경력"}
+            </a>
+            <a
+              href="#background"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("background")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {"학력 및 경력"}
+            </a>
+            <a
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("projects")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              {"프로젝트"}
+            </a>
           </Nav>
           <IconButton
             as="a"
@@ -49,18 +100,9 @@ export function HeaderBar({ about }: { about: About }) {
             rel="noopener noreferrer"
             title="GitHub"
           >
-            <Github aria-hidden="true" size={18} />
+            <Image src="/github.svg" alt="Github" width={18} height={18} />
           </IconButton>
-          <IconButton
-            as="a"
-            href={about.links.linkedin || "#"}
-            aria-label="LinkedIn profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn"
-          >
-            <Linkedin aria-hidden="true" size={18} />
-          </IconButton>
+
           <IconButton
             as="a"
             href={`mailto:${about.email}`}

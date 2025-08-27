@@ -2,41 +2,34 @@ import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
-import Providers from "@/app/providrs";
+import Providers from "@/app/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
-  title: "Seungwon Lee — Developer Portfolio",
+  metadataBase: new URL("https://seungwon.site"), // 실제 도메인으로 바꾸는 게 좋아
+  title: "이승원 — 개발자 포트폴리오",
   description:
-    "Flutter & Web Developer focused on performant mobile, realtime systems, and clean architecture.",
+    "Flutter & Web 기반 모바일/웹 애플리케이션 개발 경험. 성능 최적화, 실시간 시스템, 클린 아키텍처에 집중합니다.",
   openGraph: {
-    title: "Seungwon Lee — Developer Portfolio",
+    title: "이승원 — 개발자 포트폴리오",
     description:
-      "Flutter & Web Developer focused on performant mobile, realtime systems, and clean architecture.",
-    url: "https://example.com",
-    siteName: "Seungwon Lee — Portfolio",
+      "Flutter & Web 기반 모바일/웹 애플리케이션 개발 경험. 성능 최적화, 실시간 시스템, 클린 아키텍처에 집중합니다.",
+    url: "https://seungwon.site",
+    siteName: "이승원 — 포트폴리오",
     images: [
       {
-        url: "/p-sface.png",
+        url: "/page_logo.png", // 배포 환경에서는 절대경로나 full URL 권장
         width: 1200,
         height: 630,
-        alt: "Portfolio preview",
+        alt: "이승원 포트폴리오 미리보기",
       },
     ],
-    locale: "en_US",
+    locale: "ko_KR",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Seungwon Lee — Developer Portfolio",
-    description:
-      "Flutter & Web Developer focused on performant mobile, realtime systems, and clean architecture.",
-    images: ["/p-sface.png"],
-  },
   icons: {
-    icon: "/generic-app-icon.png",
+    icon: "/page_logo.png",
   },
 };
 

@@ -9,7 +9,7 @@ export type About = {
   role: string;
   bio: string;
   email: string;
-  links: { github: string; linkedin: string; resume: string };
+  links: { github: string; resume: string };
   avatar: string;
 };
 
@@ -34,11 +34,14 @@ export function Hero({ about }: { about: About }) {
       <Ctas>
         <PrimaryButton
           as="a"
+          download
           href={about.links.resume || "#"}
           aria-label="Download CV"
         >
           <Download aria-hidden="true" size={18} />
-          <span>{"Download CV"}</span>
+          <span style={{ fontWeight: 700, letterSpacing: "-0.02em" }}>
+            {"이력서 다운로드"}
+          </span>
         </PrimaryButton>
         <GhostButton
           as="a"
@@ -46,7 +49,9 @@ export function Hero({ about }: { about: About }) {
           aria-label="Contact via email"
         >
           <MessageCircle aria-hidden="true" size={18} />
-          <span>{"Contact"}</span>
+          <span style={{ fontWeight: 700, letterSpacing: "-0.02em" }}>
+            {"연락하기"}
+          </span>
         </GhostButton>
       </Ctas>
     </HeroWrap>

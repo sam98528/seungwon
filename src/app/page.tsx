@@ -10,12 +10,21 @@ import { Timeline } from "@/components/timeline";
 import { ProjectGrid } from "@/components/project-card";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
-import { about, experience, projects, skills } from "@/data/site";
+import { about, experience, skills } from "@/data/site";
+import styled from "styled-components";
+import { BackgroundSection } from "@/components/background-section";
+
+const MainWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  overflow-y: auto;
+`;
 
 export default function Page() {
   const techItems = useMemo(() => skills, []);
   return (
-    <>
+    <MainWrapper>
       <HeaderBar about={about} />
       <main id="main">
         <FadeIn>
@@ -29,9 +38,7 @@ export default function Page() {
             <Container>
               <SectionTitle>{"기술 스택"}</SectionTitle>
               <SectionSubtitle>
-                {
-                  "신뢰성과 높은 성능의 제품을 만들기 위해 사용하는 기술들입니다."
-                }
+                {"프로젝트에서 활용한 주요 기술 스택입니다."}
               </SectionSubtitle>
               <TechStack items={techItems} />
             </Container>
@@ -41,9 +48,19 @@ export default function Page() {
             <Container>
               <SectionTitle>{"경력"}</SectionTitle>
               <SectionSubtitle>
-                {"최근 작업에서 임팩트를 만든 핵심 하이라이트입니다."}
+                {"최근 경력에서 만들어낸 의미 있는 임팩트와 주요 기여들입니다."}
               </SectionSubtitle>
               <Timeline items={experience} />
+            </Container>
+          </Section>
+
+          <Section id="background">
+            <Container>
+              <SectionTitle>{"학력 및 경력"}</SectionTitle>
+              <SectionSubtitle>
+                {"학력 및 경력을 요약한 내용입니다."}
+              </SectionSubtitle>
+              <BackgroundSection />
             </Container>
           </Section>
 
@@ -52,16 +69,16 @@ export default function Page() {
               <SectionTitle>{"프로젝트"}</SectionTitle>
               <SectionSubtitle>
                 {
-                  "모바일, 미디어 파이프라인, 웹 애플리케이션을 아우르는 선별 작업들입니다."
+                  "모바일부터 미디어 파이프라인, 웹까지 이어지는 다양한 작업들입니다."
                 }
               </SectionSubtitle>
-              <ProjectGrid items={projects} />
+              <ProjectGrid />
             </Container>
           </Section>
 
           <Footer />
         </FadeIn>
       </main>
-    </>
+    </MainWrapper>
   );
 }
