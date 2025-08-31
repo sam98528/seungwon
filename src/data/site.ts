@@ -24,7 +24,7 @@ export const about = {
   email: "sam98528@naver.com",
   links: {
     github: "https://github.com/sam98528",
-    resume: "/SeungwonLee_Resume.pdf",
+    resume: "/[Flutter 개발자 & React 개발자] 이승원.pdf",
   },
   avatar: "/seungwon_image.png",
 };
