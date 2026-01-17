@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   basePath: "/seungwon",
-  assetPrefix: "/seungwon",
 };
 
 export default nextConfig;
