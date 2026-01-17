@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useServerInsertedHTML } from "next/navigation"
 import { ServerStyleSheet, StyleSheetManager } from "styled-components"
 
@@ -11,6 +11,11 @@ export default function StyledComponentsRegistry({
   children: React.ReactNode
 }) {
   const [styledComponentsStyleSheet] = useState(() => new ServerStyleSheet())
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useServerInsertedHTML(() => {
     const styles = styledComponentsStyleSheet.getStyleElement()
@@ -18,7 +23,9 @@ export default function StyledComponentsRegistry({
     return <>{styles}</>
   })
 
-  if (typeof window !== "undefined") return <>{children}</>
+  if (typeof window === "undefined") {
+    return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>
+  }
 
-  return <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>{children}</StyleSheetManager>
+  return <>{children}</>
 }
