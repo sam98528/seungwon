@@ -19,7 +19,7 @@ export function Hero({ about }: { about: About }) {
     <HeroWrap>
       <AvatarWrap>
         <Image
-          src={getImagePath(about.avatar)}
+          src={getImagePath("/avatar.png")}
           alt={`${about.name} avatar`}
           width={96}
           height={96}

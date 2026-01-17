@@ -23,7 +23,7 @@ export function HeaderBar({ about }: { about: About }) {
       <HeaderInner>
         <LeftWrap>
           <Image
-            src={getImagePath("/seungwon_image.png")}
+            src={getImagePath("/avatar.png")}
             alt={`${about.name} avatar`}
             width={32}
             height={32}
