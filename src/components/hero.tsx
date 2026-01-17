@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { Download, MessageCircle } from "lucide-react";
+import { getImagePath, getAssetPath } from "@/lib/paths";
 
 export type About = {
   name: string;
@@ -18,7 +19,7 @@ export function Hero({ about }: { about: About }) {
     <HeroWrap>
       <AvatarWrap>
         <Image
-          src={about.avatar}
+          src={getImagePath(about.avatar)}
           alt={`${about.name} avatar`}
           width={96}
           height={96}
@@ -35,7 +36,7 @@ export function Hero({ about }: { about: About }) {
         <PrimaryButton
           as="a"
           download
-          href={about.links.resume || "#"}
+          href={about.links.resume ? getAssetPath(about.links.resume) : "#"}
           aria-label="Download CV"
         >
           <Download aria-hidden="true" size={18} />

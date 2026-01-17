@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { Mail } from "lucide-react";
+import { getImagePath } from "@/lib/paths";
 
 type About = {
   name: string;
@@ -22,7 +23,7 @@ export function HeaderBar({ about }: { about: About }) {
       <HeaderInner>
         <LeftWrap>
           <Image
-            src={"/seungwon_image.png"}
+            src={getImagePath("/seungwon_image.png")}
             alt={`${about.name} avatar`}
             width={32}
             height={32}
@@ -100,7 +101,7 @@ export function HeaderBar({ about }: { about: About }) {
             rel="noopener noreferrer"
             title="GitHub"
           >
-            <Image src="/github.svg" alt="Github" width={18} height={18} />
+            <Image src={getImagePath("/github.svg")} alt="Github" width={18} height={18} />
           </IconButton>
 
           <IconButton

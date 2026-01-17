@@ -5,6 +5,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import { Calendar, Users, Home, Monitor, Smartphone, Link } from "lucide-react";
 import { Project, projects } from "@/data/site";
+import { getImagePath } from "@/lib/paths";
 
 export function ProjectGrid() {
   const items = projects;
@@ -62,8 +63,9 @@ function ProjectCard({
         <Media>
           <Image
             src={
-              project.cover ||
-              "/placeholder.svg?height=640&width=1024&query=project%20cover"
+              project.cover
+                ? getImagePath(project.cover)
+                : getImagePath("/placeholder.svg?height=640&width=1024&query=project%20cover")
             }
             alt={`${project.title} cover`}
             fill
@@ -148,7 +150,7 @@ function ProjectCard({
                 title="Live Demo"
               >
                 <Image
-                  src="/project/youtube.svg"
+                  src={getImagePath("/project/youtube.svg")}
                   alt="Youtube"
                   width={18}
                   height={18}
@@ -164,7 +166,7 @@ function ProjectCard({
                 aria-label="View source code"
                 title="GitHub"
               >
-                <Image src="/github.svg" alt="Github" width={18} height={18} />
+                <Image src={getImagePath("/github.svg")} alt="Github" width={18} height={18} />
                 <span>{"View Source"}</span>
               </ActionButton>
             )}
@@ -178,7 +180,7 @@ function ProjectCard({
                 title="App Store"
               >
                 <Image
-                  src="/project/app_store.svg"
+                  src={getImagePath("/project/app_store.svg")}
                   alt="App Store"
                   width={18}
                   height={18}
@@ -195,7 +197,7 @@ function ProjectCard({
                 title="Play Store"
               >
                 <Image
-                  src="/project/play_store.svg"
+                  src={getImagePath("/project/play_store.svg")}
                   alt="App Store"
                   width={18}
                   height={18}
