@@ -33,7 +33,9 @@ export default function Page() {
               <Hero about={about} />
             </Container>
           </Section>
+        </FadeIn>
 
+        <FadeIn delay={100}>
           <Section id="skills">
             <Container>
               <SectionTitle>{"기술 스택"}</SectionTitle>
@@ -43,7 +45,9 @@ export default function Page() {
               <TechStack items={techItems} />
             </Container>
           </Section>
+        </FadeIn>
 
+        <FadeIn delay={200}>
           <Section id="experience">
             <Container>
               <SectionTitle>{"경력"}</SectionTitle>
@@ -53,7 +57,9 @@ export default function Page() {
               <Timeline items={experience} />
             </Container>
           </Section>
+        </FadeIn>
 
+        <FadeIn delay={300}>
           <Section id="background">
             <Container>
               <SectionTitle>{"학력 및 경력"}</SectionTitle>
@@ -63,7 +69,9 @@ export default function Page() {
               <BackgroundSection />
             </Container>
           </Section>
+        </FadeIn>
 
+        <FadeIn delay={400}>
           <Section id="projects">
             <Container>
               <SectionTitle>{"프로젝트"}</SectionTitle>
@@ -75,7 +83,9 @@ export default function Page() {
               <ProjectGrid />
             </Container>
           </Section>
+        </FadeIn>
 
+        <FadeIn delay={500}>
           <Footer />
         </FadeIn>
       </main>
