@@ -27,7 +27,7 @@ export default function Page() {
     <MainWrapper>
       <HeaderBar about={about} />
       <main id="main">
-        <FadeIn>
+        <FadeIn delay={0}>
           <Section id="about">
             <Container>
               <Hero about={about} />
@@ -35,7 +35,7 @@ export default function Page() {
           </Section>
         </FadeIn>
 
-        <FadeIn delay={100}>
+        <FadeIn delay={200}>
           <Section id="skills">
             <Container>
               <SectionTitle>{"기술 스택"}</SectionTitle>
@@ -47,7 +47,7 @@ export default function Page() {
           </Section>
         </FadeIn>
 
-        <FadeIn delay={200}>
+        <FadeIn delay={400}>
           <Section id="experience">
             <Container>
               <SectionTitle>{"경력"}</SectionTitle>
@@ -59,7 +59,7 @@ export default function Page() {
           </Section>
         </FadeIn>
 
-        <FadeIn delay={300}>
+        <FadeIn delay={600}>
           <Section id="background">
             <Container>
               <SectionTitle>{"학력 및 경력"}</SectionTitle>
@@ -71,7 +71,7 @@ export default function Page() {
           </Section>
         </FadeIn>
 
-        <FadeIn delay={400}>
+        <FadeIn delay={800}>
           <Section id="projects">
             <Container>
               <SectionTitle>{"프로젝트"}</SectionTitle>
@@ -85,7 +85,7 @@ export default function Page() {
           </Section>
         </FadeIn>
 
-        <FadeIn delay={500}>
+        <FadeIn delay={1000}>
           <Footer />
         </FadeIn>
       </main>

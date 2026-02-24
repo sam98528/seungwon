@@ -15,13 +15,14 @@ interface FadeInProps {
 export function FadeIn({
   children,
   delay = 0,
-  duration = 400,
-  yOffset = 24,
+  duration = 800,
+  yOffset = 50,
 }: FadeInProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    const t = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(t);
+    // Adding a slight delay to ensure the initial opacity: 0 is registered by the browser
+    const t = setTimeout(() => setMounted(true), 100);
+    return () => clearTimeout(t);
   }, []);
 
   return (
